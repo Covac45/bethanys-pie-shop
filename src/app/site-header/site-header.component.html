@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img
+        class="d-inline-block align-top"
+        src="/assets/images/pie.png"
+        width="30"
+        height="30"
+        alt="Bethany's Pie Shop Logo"
+      />
+      Bethany's Pie Shop
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse"
+      aria-controls="navbarCollapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a routerLink="/home" routerLinkActive="active" class="nav-link">
+            Home
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="nav-dropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Pies
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="nav-dropdown">
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/fruitpies"
+                routerLinkActive="active"
+              >
+                Fruit pies
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/cheesecakes"
+                routerLinkActive="active"
+                >Cheesecakes
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/seasonalpies"
+                routerLinkActive="active"
+                >Seasonal pies
+              </a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/allpies"
+                routerLinkActive="active"
+                >All pies
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="/pieSubscription"
+            routerLinkActive="active"
+            class="nav-link"
+          >
+            Pie subscription
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/order" routerLinkActive="active" class="nav-link"
+            >Order</a
+          >
+        </li>
+        <li class="nav-item">
+          <a routerLink="/contact" routerLinkActive="active" class="nav-link"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
