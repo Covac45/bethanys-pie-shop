@@ -36,8 +36,8 @@
           <p>Our delicious pies delivered to your door. Every week.</p>
           <p>
             <a
+            routerLink="/piesubscription"  
               class="btn btn-lg btn-primary"
-              href="piesubscription.html"
               role="button"
               >Sign up today</a
             >
@@ -147,7 +147,7 @@
             <p class="card-text">Our famous apple pies!</p>
           </div>
           <div class="card-footer">
-            <a routerLink="/apple-pie" class="btn btn-primary">View details</a>
+            <a [routerLink]="['/product/1']" class="btn btn-primary">View details</a>
           </div>
         </div>
       </div>
@@ -163,7 +163,7 @@
             <p class="card-text">My God, so sweet!</p>
           </div>
           <div class="card-footer">
-            <a routerLink="/rhubarb-pie" class="btn btn-primary"
+            <a [routerLink]="['/product/2']" class="btn btn-primary"
               >View details</a
             >
           </div>
@@ -181,7 +181,7 @@
             <p class="card-text">Our delicious strawberry pie!</p>
           </div>
           <div class="card-footer">
-            <a routerLink="/strawberry-pie" class="btn btn-primary"
+            <a [routerLink]="['/product/3']" class="btn btn-primary"
               >View details</a
             >
           </div>

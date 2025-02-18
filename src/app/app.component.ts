@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SiteHeaderComponent } from './site-header/site-header.component';
 import { CommonModule } from '@angular/common';
-import { ProductDetailsComponent } from "./product-details/product-details.component";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +10,8 @@ import { ProductDetailsComponent } from "./product-details/product-details.compo
     RouterOutlet,
     CommonModule,
     SiteHeaderComponent,
-    ProductDetailsComponent
 ],
+  providers: [HttpClient],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
