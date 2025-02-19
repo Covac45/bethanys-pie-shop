@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adamr\\source\\Website files\\bethanys-pie-shop\\bps-api\\BethaniesPieShopAPI\\BethaniesPieShopAPI\\BethaniesPieShopAPI.csproj": {}
+    "C:\\Users\\Covac\\source\\repos\\BethanysPieShopWebApp\\bethanys-pie-shop\\bps-api\\BethaniesPieShopAPI\\BethaniesPieShopAPI\\BethaniesPieShopAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adamr\\source\\Website files\\bethanys-pie-shop\\bps-api\\BethaniesPieShopAPI\\BethaniesPieShopAPI\\BethaniesPieShopAPI.csproj": {
+    "C:\\Users\\Covac\\source\\repos\\BethanysPieShopWebApp\\bethanys-pie-shop\\bps-api\\BethaniesPieShopAPI\\BethaniesPieShopAPI\\BethaniesPieShopAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adamr\\source\\Website files\\bethanys-pie-shop\\bps-api\\BethaniesPieShopAPI\\BethaniesPieShopAPI\\BethaniesPieShopAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Covac\\source\\repos\\BethanysPieShopWebApp\\bethanys-pie-shop\\bps-api\\BethaniesPieShopAPI\\BethaniesPieShopAPI\\BethaniesPieShopAPI.csproj",
         "projectName": "BethaniesPieShopAPI",
-        "projectPath": "C:\\Users\\adamr\\source\\Website files\\bethanys-pie-shop\\bps-api\\BethaniesPieShopAPI\\BethaniesPieShopAPI\\BethaniesPieShopAPI.csproj",
-        "packagesPath": "C:\\Users\\adamr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adamr\\source\\Website files\\bethanys-pie-shop\\bps-api\\BethaniesPieShopAPI\\BethaniesPieShopAPI\\obj\\",
+        "projectPath": "C:\\Users\\Covac\\source\\repos\\BethanysPieShopWebApp\\bethanys-pie-shop\\bps-api\\BethaniesPieShopAPI\\BethaniesPieShopAPI\\BethaniesPieShopAPI.csproj",
+        "packagesPath": "C:\\Users\\Covac\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Covac\\source\\repos\\BethanysPieShopWebApp\\bethanys-pie-shop\\bps-api\\BethaniesPieShopAPI\\BethaniesPieShopAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\adamr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Covac\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -43,9 +43,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
