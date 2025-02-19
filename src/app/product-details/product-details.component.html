@@ -1,10 +1,5 @@
 <main role="main">
-  <div class="container-fluid jumbotron jumbotron-detail-apple-pie py-5">
-    <div class="container">
-      <h1 class="display-3 fw-bold text-white">{{ product?.name }}</h1>
-    </div>
-  </div>
-
+  <BPS-product-jumbotron [jumbotronImagePath] = "productImagePath"></BPS-product-jumbotron>
   <div class="container">
     <nav class="my-3 ms-3">
       <ol
@@ -17,46 +12,45 @@
         <li class="breadcrumb-item">
           <a href="../fruitpies.html">Fruit pies</a>
         </li>
-        <li class="breadcrumb-item active" aria-current="page">Apple Pie</li>
+        <li class="breadcrumb-item active" aria-current="page">{{productById.productName}}</li>
       </ol>
     </nav>
 
     <div class="p-4 pt-1 mb-3 mt-2 bg-light rounded border">
       <h1 class="fw-bolder my-3">
-        {{ product?.name }}
-        <small class="fw-normal fst-italic">{{ product?.tagline }}</small>
+        {{ productById.productName }}
+        <small class="fw-normal fst-italic">{{ productById.tagline }}</small>
       </h1>
 
       <div class="row">
         <div class="col-lg-8 col-sm-6">
           <img
             class="rounded-5 img-fluid"
-            [src]="GetImageUrl(product)"
-            [alt]="product?.name"
-            alt="Image of apple pie"
+            [src]="productImagePath"
+            [alt]="productById.productName"
+            alt="Image of {{productById.productName}}"
           />
         </div>
 
         <div class="col-lg-4 col-sm-6 text-">
           <h3>About this pie</h3>
-          <p class="lead">{{ product?.AbpTagline }}</p>
+          <p class="lead">{{ productById.atpTagline }}</p>
           <p class="text-">
-            {{ product?.description }}
+            {{ productById.description }}
           </p>
 
           <h3>Ingredients</h3>
-
+          
           <ul>
-            <li>Apple</li>
-            <li>Sugar</li>
-            <li>Eggs</li>
-            <li>Milk</li>
+            <li *ngFor="let ingredient of productById.ingredients">{{ingredient}}</li>
           </ul>
 
           <div>
             <div class="row">
               <div class="col-md-4">
-                <strong>{{ product.price * (1 - product.discount) }}</strong>
+                <strong></strong>
+                  Price: £{{productById.price}}
+
               </div>
               <div class="col-md-8">
                 <a
@@ -79,8 +73,7 @@
     <div class="p-2 mb-3 mt-2 bg-light rounded border border-primary">
       <h4>A quote from Bethany</h4>
       <p class="mb-0 fst-italic">
-        My recipes have been in our family for generations. We hope you enjoy
-        our pies! - Bethany
+        {{productById.productQuote}}
       </p>
     </div>
 
@@ -96,20 +89,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Apple</td>
-                <td>Yes</td>
-                <td>50%</td>
-              </tr>
-              <tr>
-                <td>Eggs</td>
-                <td>Yes</td>
-                <td>10%</td>
-              </tr>
-              <tr>
-                <td>Nuts</td>
-                <td>Maybe</td>
-                <td>&lt;0.1%</td>
+              <tr *ngFor="let n of productById.ingredients; let i = index">
+                <td>{{ productById.ingredients [i] }}</td>
+                <td>{{ productById.ingredientRisk[i] }}</td>
+                <td>{{ productById.ingredientPct[i]}}</td>
               </tr>
             </tbody>
           </table>
@@ -117,76 +100,30 @@
       </div>
     </div>
 
+
+    <!-- OTHER CUSTOMERS ALSO BOUGHT SECTION-->
+
     <div class="p-4 pt-1 mb-3 mt-0 bg-light rounded">
       <h3 class="display-5 text-decoration-underline my-4">
         Other customers also bought...
       </h3>
-
+      
       <div class="row">
-        <div class="col-md-3 col-sm-6">
+        
+        <div class="col-md-3 col-sm-6" *ngFor="let p of filteredProducts">
           <div class="card rounded mb-4 shadow-sm">
             <img
               class="card-img-top"
-              src="/assets/images/products/strawberrypiesmall.jpg"
+              src="/assets/images/products/{{p.smallImagePath}}"
             />
             <div class="card-body">
-              <h5 class="card-title">Strawberry pie</h5>
-              <p class="card-text">Our delicious strawberry pie!</p>
+              <h5 class="card-title">{{p.productName}}</h5>
+              <p class="card-text">{{p.cardTagline}}</p>
             </div>
             <div class="card-footer">
-              <a href="strawberrypie.html" class="btn btn-primary"
-                >View details</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-          <div class="card rounded mb-4 shadow-sm">
-            <img
-              class="card-img-top"
-              src="/assets/images/products/rhubarbpiesmall.jpg"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Rhubarb pie</h5>
-              <p class="card-text">My God, so sweet!</p>
-            </div>
-            <div class="card-footer">
-              <a href="rhubarbpie.html" class="btn btn-primary">View details</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-          <div class="card rounded mb-4 shadow-sm">
-            <img
-              class="card-img-top"
-              src="/assets/images/products/peachpiesmall.jpg"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Peach pie</h5>
-              <p class="card-text">Beautifully juicy peach pie!</p>
-            </div>
-            <div class="card-footer">
-              <a href="peachpie.html" class="btn btn-primary">View details</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-          <div class="card rounded mb-4 shadow-sm">
-            <img
-              class="card-img-top"
-              src="/assets/images/products/cranberrypiesmall.jpg"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Cranberry pie</h5>
-              <p class="card-text">Tangy and scrumptious festive treat!</p>
-            </div>
-            <div class="card-footer">
-              <a href="cranberrypie.html" class="btn btn-primary"
-                >View details</a
-              >
+              <a [routerLink]="['/product', p.productId]" class="btn btn-primary">
+                View details
+              </a>
             </div>
           </div>
         </div>

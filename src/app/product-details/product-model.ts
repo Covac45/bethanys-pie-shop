@@ -1,16 +1,17 @@
 export interface IProduct{
-    id: number;
-    name: string;
+    productId: number;
+    productName: string;
+    productCategory: string;
     tagline: string;
-    AbpTagline: string;
-    CardTagline: string;
+    atpTagline: string;
+    cardTagline: string;
     description: string;
     ingredients: string[];
-    IngredientsRisk: string[];
-    IngredientsQty: string[];
-    imageName: string;
-    smallImageName: string;
-    category: string;
+    ingredientRisk: string[];
+    ingredientPct: string[];
+    productQuote: string;
+    imagePath: string;
+    smallImagePath: string;
     price: number;
-    discount: number;
+    //discount: number;
 }
