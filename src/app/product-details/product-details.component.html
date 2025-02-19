@@ -123,7 +123,7 @@
               <p class="card-text">{{p.cardTagline}}</p>
             </div>
             <div class="card-footer">
-              <a [routerLink]="['/product', p.productId]" class="btn btn-primary">
+              <a [routerLink]="['/product', p.productId]" class="btn btn-primary" (click)="scrollToTop()">
                 View details
               </a>
             </div>

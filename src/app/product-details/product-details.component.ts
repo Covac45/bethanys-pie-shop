@@ -1,7 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { IProduct } from './product-model';
-import { HttpClient } from '@angular/common/http';
 import { ProductService } from '../product-service/product.service';
 import { CommonModule } from '@angular/common';
 import { map, switchMap, tap } from 'rxjs';
@@ -14,7 +13,6 @@ import { ProductJumbotronComponent } from "../product-jumbotron/product-jumbotro
   styleUrl: './product-details.component.scss',
 })
 export class ProductDetailsComponent {
-    //@Input() product!: IProduct
     productSvc = inject(ProductService);
 
     public productById!: IProduct;
@@ -54,5 +52,9 @@ export class ProductDetailsComponent {
       ).subscribe(filtered => {
         this.filteredProducts = filtered;
       });
+    }
+
+    scrollToTop(): void {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
