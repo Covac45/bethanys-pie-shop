@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FruitpiesComponent } from './fruitpies.component';
+import { RouterModule } from '@angular/router';
 
 describe('FruitpiesComponent', () => {
   let component: FruitpiesComponent;
