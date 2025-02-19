@@ -24,6 +24,7 @@ export class ProductDetailsComponent {
     
     public allProducts!: IProduct[];
     public filteredProducts!: IProduct[];
+    public categoreyRouterLink!: string
 
 
   constructor(
@@ -41,6 +42,7 @@ export class ProductDetailsComponent {
         tap(product => {
           this.productById = product;
           this.productImagePath = `/assets/images/products/${product.imagePath}`;
+          this.categoreyRouterLink = product.productCategory.toLowerCase().trim().replace(/\s+/g, "")
         }),
         switchMap(product =>
           this.productSvc.GetProducts().pipe(

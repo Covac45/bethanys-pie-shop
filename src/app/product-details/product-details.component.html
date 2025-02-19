@@ -10,7 +10,9 @@
         <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
         <li class="breadcrumb-item"><a href="../allpies.html">Pies</a></li>
         <li class="breadcrumb-item">
-          <a href="../fruitpies.html">Fruit pies</a>
+          <a [routerLink]="['/', categoreyRouterLink]">
+            {{productById.productCategory}}
+          </a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">{{productById.productName}}</li>
       </ol>
