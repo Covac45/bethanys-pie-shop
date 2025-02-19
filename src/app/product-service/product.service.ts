@@ -7,15 +7,17 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
+
+  private apiURL = 'http://localhost:5043/api';  
+
   constructor(private http: HttpClient) {}
 
-  GetProducts() {
-    return this.http.get<IProduct[]>('https://localhost:7162/api/products');
+  GetProducts(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(this.apiURL + '/products');
   }
 
-  GetThisProduct(id: number) {
-    return this.GetProducts().pipe(
-      map((products) => products.find((p) => p.id === id))
-    );
+  GetThisProduct(id: number) : Observable<IProduct> {
+    return this.http.get<IProduct>(this.apiURL + '/products/' + id);
   }
+  
 }
