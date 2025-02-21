@@ -5,10 +5,11 @@ import { ProductService } from '../product-service/product.service';
 import { CommonModule } from '@angular/common';
 import { map, switchMap, tap } from 'rxjs';
 import { ProductJumbotronComponent } from "../product-jumbotron/product-jumbotron.component";
+import { OffcanvasCartComponent } from "../offcanvas-cart/offcanvas-cart.component";
 
 @Component({
   selector: 'BPS-product-details',
-  imports: [CommonModule, ProductJumbotronComponent, RouterModule],
+  imports: [CommonModule, ProductJumbotronComponent, RouterModule, OffcanvasCartComponent],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss',
 })

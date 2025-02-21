@@ -20,7 +20,7 @@ import { PumpkinPieComponent } from './products/pumpkin-pie/pumpkin-pie.componen
 import { RhurbarbPieComponent } from './products/rhurbarb-pie/rhurbarb-pie.component';
 import { StrawberryCheesecakeComponent } from './products/strawberry-cheesecake/strawberry-cheesecake.component';
 import { StrawberryPieComponent } from './products/strawberry-pie/strawberry-pie.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsComponent } from './product-page/product-details/product-details.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, title: "Home - Bethany's Pie Shop"},
