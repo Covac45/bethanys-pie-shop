@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { IProduct } from './product-model';
 import { ProductService } from '../product-service/product.service';
@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { map, switchMap, tap } from 'rxjs';
 import { ProductJumbotronComponent } from "../product-jumbotron/product-jumbotron.component";
 import { OffcanvasCartComponent } from "../offcanvas-cart/offcanvas-cart.component";
+import { CartService } from '../../cart-service/cart.service';
 
 @Component({
   selector: 'BPS-product-details',
@@ -14,7 +15,11 @@ import { OffcanvasCartComponent } from "../offcanvas-cart/offcanvas-cart.compone
   styleUrl: './product-details.component.scss',
 })
 export class ProductDetailsComponent {
-    productSvc = inject(ProductService);
+  @Output() addToBasket = new EventEmitter();  
+  
+  productSvc = inject(ProductService);
+  cartSvc = inject(CartService);
+
 
     public productById!: IProduct;
     public productImagePath!: string;
@@ -57,5 +62,9 @@ export class ProductDetailsComponent {
 
     scrollToTop(): void {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    AddToCart(product: IProduct): void{
+      this.cartSvc.AddProductToCart(product);
     }
 }
