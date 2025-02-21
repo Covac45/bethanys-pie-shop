@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ProductJumbotronComponent } from "../../product-jumbotron/product-jumbotron.component";
+import { ProductJumbotronComponent } from "../../product-page/product-jumbotron/product-jumbotron.component";
 
 @Component({
   selector: 'BPS-fruitpies',

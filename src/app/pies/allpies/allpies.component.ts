@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { IProduct } from '../../product-details/product-model';
-import { ProductService } from '../../product-service/product.service';
+import { IProduct } from '../../product-page/product-details/product-model';
+import { ProductService } from '../../product-page/product-service/product.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ProductJumbotronComponent } from "../../product-jumbotron/product-jumbotron.component";
+import { ProductJumbotronComponent } from "../../product-page/product-jumbotron/product-jumbotron.component";
 
 @Component({
   selector: 'BPS-allpies',
