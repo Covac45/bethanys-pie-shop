@@ -1,4 +1,5 @@
 import { IProduct } from "../product-page/product-details/product-model"
+import { ICart } from "./cart-model";
 
 export interface ICartInterface {
 
@@ -6,12 +7,11 @@ export interface ICartInterface {
     
       AddProductToCart(product: IProduct): void;
     
-      GetCart(): IProduct[];
+      GetCart(): ICart;
     
       FindProductInCart(product: IProduct): number;
     
       RemoveProductFromCart(product: IProduct): void;
     
       clearCart(): void;
-
 }
