@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IProduct } from '../product-page/product-details/product-model';
 import { ICartInterface } from './icart-interface';
 import { ICart } from './cart-model';
-import { findIndex } from 'rxjs';
+import { BehaviorSubject, findIndex } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,62 +10,64 @@ import { findIndex } from 'rxjs';
 
 export class CartService implements ICartInterface {
 
-  public cart: ICart = {
-    products: [],
-    productQty: []
-  };
-
+  public cartSource = new BehaviorSubject<ICart>(ICart.getInstance());
+  cart$ = this.cartSource.asObservable();
+  
   constructor() { }
 
+  LoadCart(){
+    return JSON.parse(localStorage.getItem('cart_items') || '{"products": [], "productQty": []}');
+  }
+
   saveCart():void {
-    localStorage.setItem('cart_items', JSON.stringify(this.cart));
+    const cart = this.cartSource.value;
+    localStorage.setItem('cart_items', JSON.stringify(cart));
   }
 
   AddProductToCart(product: IProduct): void
   {
+    const cart = this.cartSource.value;
     var index = this.FindProductInCart(product);
 
     if(index > -1){
-      this.cart.productQty[index] += 1;
-      this.saveCart();
+      cart.productQty[index] += 1;
     }
     else{
-      this.cart.products.push(product);
-      this.cart.productQty.push(1);
-      this.saveCart();
+      cart.products.push(product);
+      cart.productQty.push(1);
     }
     
-    //debug logs
-    console.log(this.cart.products.some(p => p.productId === product.productId));
-    const foundIndex = this.cart.products.findIndex(p => p.productId === product.productId);
-    console.log('Product found at index', foundIndex);
-    this.GetCart().products.forEach(p => console.log(JSON.stringify(p)));
-    this.GetCart().productQty.forEach(qty => console.log('product qty is:' + JSON.stringify(qty)));
+    this.saveCart();
+    this.cartSource.next({ ...cart});
   }
 
   GetCart(): ICart{
-    this.cart = JSON.parse(localStorage.getItem('cart_items') as any) || [];
-    return this.cart
+    return this.cartSource.value
   }
 
   FindProductInCart(product: IProduct): number{
-    const index = this.cart.products.findIndex(p => p.productId === product.productId);
+    const index = this.cartSource.value.products.findIndex(p => p.productId === product.productId);
 
     return index;
   }
 
   RemoveProductFromCart(product: IProduct): void {
+    const cart = this.cartSource.value;
     const index = this.FindProductInCart(product);
 
     if (index >-1){
-      this.cart.products.splice(index, 1);
-      this.cart.productQty.splice(index, 1);
+      cart.products.splice(index, 1);
+      cart.productQty.splice(index, 1);
+
+      this.cartSource.next(cart)
       this.saveCart();
     }
   }
 
   clearCart(){
-    localStorage.clear()
+    const emptyCart: ICart = { products: [], productQty: [] };
+    this.cartSource.next(emptyCart);
+    localStorage.removeItem('cart_items');
   }
 
 }
