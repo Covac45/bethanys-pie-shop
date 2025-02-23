@@ -4,16 +4,16 @@ import { IProduct } from '../product-details/product-model';
 import { ICart } from '../../cart-service/cart-model';
 import { CommonModule } from '@angular/common';
 import { Observable, Subscription } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'BPS-offcanvas-cart',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './offcanvas-cart.component.html',
   styleUrl: './offcanvas-cart.component.scss'
 })
 export class OffcanvasCartComponent {
   
-  //private cartSvc = inject(CartService)
   public cartSubscription!: Subscription;
 
   public cart!: ICart;
@@ -31,17 +31,20 @@ constructor(private cartSvc: CartService){}
 
   }
 
-  ngOnChanges(){
-    this.cartSubscription = this.cartSvc.cart$.subscribe(updatedCart => {
-      this.cart = updatedCart;
-    });
-    this.products = this.cart.products;
-    this.productQty = this.cart.productQty;
-    
-    /*this.cart = ICart.getInstance();
-    this.products = this.cart.products;
-    this.productQty = this.cart.productQty;
-    console.log('Change detected')*/
+  getTotalPrice(){
+    return this.cartSvc.getTotalCartPrice();
+  }
+
+  updateProductQuantity(index: number, newQuantity: number): void {
+    this.cartSvc.updateProductQuantity(index, newQuantity);
+  }
+
+  removeProduct(product: IProduct){
+    this.cartSvc.RemoveProductFromCart(product);
+  }
+
+  clearCart(){
+    this.cartSvc.clearCart();
   }
 
 }

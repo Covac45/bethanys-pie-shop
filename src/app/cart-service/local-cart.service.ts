@@ -10,8 +10,10 @@ import { BehaviorSubject, findIndex } from 'rxjs';
 
 export class CartService implements ICartInterface {
 
-  public cartSource = new BehaviorSubject<ICart>(ICart.getInstance());
+  private cartSource = new BehaviorSubject<ICart>(ICart.getInstance());
   cart$ = this.cartSource.asObservable();
+
+  public shippingCost: number = 10.00
   
   constructor() { }
 
@@ -65,9 +67,33 @@ export class CartService implements ICartInterface {
   }
 
   clearCart(){
-    const emptyCart: ICart = { products: [], productQty: [] };
+    
+    this.cartSource.value.products.splice(0,this.cartSource.value.products.length)
+    this.cartSource.value.productQty.splice(0,this.cartSource.value.productQty.length);
+    
+    const emptyCart: ICart = this.cartSource.value;
+    this.cartSource.value.products.forEach(p=>console.log(JSON.stringify(p)))
+    this.cartSource.value.productQty.forEach(qty=>console.log(JSON.stringify(qty)))
+
     this.cartSource.next(emptyCart);
     localStorage.removeItem('cart_items');
+    this.saveCart();
+  }
+
+  getTotalCartPrice(): number {
+    const cart = this.cartSource.value;
+    return cart.products.reduce((total, product, index) => {
+      return total + (product.price * cart.productQty[index]) + this.shippingCost;
+    }, 0);
+  }
+
+  updateProductQuantity(index: number, newQuantity: number): void {
+    if (newQuantity < 1) {
+      this.cartSource.value.productQty[index] = 1;
+    } else {
+      this.cartSource.next(this.cartSource.value);
+      this.saveCart();
+    }
   }
 
 }
