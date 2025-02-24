@@ -1,1 +1,73 @@
-<p>login works!</p>
+<main role="main">
+    <BPS-product-jumbotron [jumbotronImagePath] = "jumbotronLogin"></BPS-product-jumbotron>
+    <div class="container">
+      <nav class="my-3 ms-3">
+        <ol
+          class="breadcrumb"
+          style="--bs-breadcrumb-divider: '>'"
+          aria-label="breadcrumb"
+        >
+          <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="['/cart']">Cart</a></li>
+        </ol>
+    </nav>
+
+        <div class="p-1 pt-1 mb-3 mt-0 bg-light rounded">
+            <div class="row">           
+                <div class="col-lg-6 p-4">
+                    <h2 class="text-center p-1">
+                        Welcome back!
+                    </h2>
+                    <p class="text-muted text-center pb-2">Please enter your details</p>
+                    <div class ="text-center">
+                        <button class="btn btn-google">Sign in with Google</button>
+                    </div>
+                    <hr class = "text-center" style ="content: 'or';" />
+                    <p class="text-muted text-center">Login with your email</p>
+                    <form>
+                        <div class="col-12 p-1">
+                            <label for="email" class="form-label">
+                                Email address:
+                            </label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                placeholder="you@example.com"
+                                required/>
+                            <div class="invalid-feedback">
+                                Please enter a valid email address.
+                            </div>
+                        </div>
+
+                        <div class="col-12 p-1">
+                            <label for="password" class="form-label">
+                                Password:
+                            </label>
+                            <input
+                                type="password"
+                                id="password"
+                                class="form-control"
+                                required/>
+                            <div class="invalid-feedback">
+                                Please enter a valid password.
+                            </div>
+                        </div>
+
+                        <div class ="text-center p-4">
+                            <button type="submit" class="btn btn-primary">Sign In</button>
+                        </div>
+                        </form>
+                        <p class="text-muted text-center">Don't have an account? <a [routerLink]="['/signup']">Sign Up Now!</a></p>
+                </div>
+                <div class="col-lg-6 row text-center">
+                    <img
+                        src="/assets/images/bethanylogo.png"
+                        class ="img-fluid m-auto rounded"
+                        style = "max-width: 70%;"
+                        alt="responsive image"
+                    >
+                </div>
+            </div>
+        </div>
+  </div>
