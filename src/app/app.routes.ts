@@ -22,6 +22,7 @@ import { StrawberryCheesecakeComponent } from './products/strawberry-cheesecake/
 import { StrawberryPieComponent } from './products/strawberry-pie/strawberry-pie.component';
 import { ProductDetailsComponent } from './product-page/product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, title: "Home - Bethany's Pie Shop"},
@@ -29,6 +30,8 @@ export const routes: Routes = [
     {path: 'pieSubscription', component: PieSubscriptionComponent, title: "Pie Subscription - Bethany's Pie Shop"},
     {path: 'contact', component: ContactComponent, title: "Contact - Bethany's Pie Shop"},
     {path: 'cart', component: CartComponent, title: "Basket - Bethany's Pie Shop"},
+    {path: 'login', component: LoginComponent, title: "Sign in - Bethany's Pie Shop"},
+
 
     //pie pages
     {path: 'cheesecakes', component: CheesecakesComponent, title: "Cheesecakes - Bethany's Pie Shop"},
@@ -36,8 +39,8 @@ export const routes: Routes = [
     {path: 'seasonalpies', component: SeasonalpiesComponent, title: "Seasonal Pies - Bethany's Pie Shop"},
     {path: 'allpies', component: AllpiesComponent, title: "All Pies - Bethany's Pie Shop"},
 
-    //products
-    {path: 'apple-pie', component: ApplePieComponent, title: "Apple pie - Bethany's Pie Shop"},
+    //products - currently not used
+    /*{path: 'apple-pie', component: ApplePieComponent, title: "Apple pie - Bethany's Pie Shop"},
     {path: 'blueberry-cheesecake', component: BlueberryCheesecakeComponent, title: "Blueberry Cheesecake - Bethany's Pie Shop"},
     {path: 'cheesecake', component: CheesecakeComponent, title: "Cheesecake - Bethany's Pie Shop"},
     {path: 'cherry-pie', component: CherryPieComponent, title: "Cherry pie - Bethany's Pie Shop"},
@@ -47,7 +50,7 @@ export const routes: Routes = [
     {path: 'pumpkin-pie', component: PumpkinPieComponent, title: "Pumpkin pie - Bethany's Pie Shop"},
     {path: 'rhubarb-pie', component: RhurbarbPieComponent, title: "Pumpkin pie - Bethany's Pie Shop"},
     {path: 'strawberry-cheesecake', component: StrawberryCheesecakeComponent, title: "Strawberry Cheesecake - Bethany's Pie Shop"},
-    {path: 'strawberry-pie', component: StrawberryPieComponent, title: "Strawberry pie - Bethany's Pie Shop"},
+    {path: 'strawberry-pie', component: StrawberryPieComponent, title: "Strawberry pie - Bethany's Pie Shop"},*/
 
     //product-detail page
     {path: 'product/:id', component: ProductDetailsComponent, title: "Bethany's Pie Shop"},
