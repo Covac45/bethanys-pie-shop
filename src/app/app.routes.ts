@@ -21,12 +21,14 @@ import { RhurbarbPieComponent } from './products/rhurbarb-pie/rhurbarb-pie.compo
 import { StrawberryCheesecakeComponent } from './products/strawberry-cheesecake/strawberry-cheesecake.component';
 import { StrawberryPieComponent } from './products/strawberry-pie/strawberry-pie.component';
 import { ProductDetailsComponent } from './product-page/product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, title: "Home - Bethany's Pie Shop"},
     {path: 'order', component: OrderComponent, title: "Order - Bethany's Pie Shop"},
     {path: 'pieSubscription', component: PieSubscriptionComponent, title: "Pie Subscription - Bethany's Pie Shop"},
     {path: 'contact', component: ContactComponent, title: "Contact - Bethany's Pie Shop"},
+    {path: 'cart', component: CartComponent, title: "Basket - Bethany's Pie Shop"},
 
     //pie pages
     {path: 'cheesecakes', component: CheesecakesComponent, title: "Cheesecakes - Bethany's Pie Shop"},

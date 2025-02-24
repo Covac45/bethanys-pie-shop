@@ -1,0 +1,181 @@
+<main role="main">
+    <BPS-product-jumbotron [jumbotronImagePath] = "jumbotronCart"></BPS-product-jumbotron>
+    <div class="container">
+      <nav class="my-3 ms-3">
+        <ol
+          class="breadcrumb"
+          style="--bs-breadcrumb-divider: '>'"
+          aria-label="breadcrumb"
+        >
+          <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="['/cart']">Cart</a></li>
+        </ol>
+    </nav>
+
+        <div class="p-4 pt-1 mb-3 mt-0 bg-light rounded">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="shoppingCartLabel">Your shopping cart</h5>
+            </div>
+
+            <div class="offcanvas-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th>Pie name</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of products; let i = index">
+                        <td class="col-sm-8 col-md-6">
+                            <div class="media">
+                            <img
+                                class="mr-3 thumbnail img-fluid"
+                                width="200"
+                                src="/assets/images/products/{{p.imagePath}}"
+                                alt="{{p.productName}}"
+                            />
+                            <div class="media-body">
+                                <h5 class="mt-0 media-heading text-primary">{{p.productName}}</h5>
+                                <span>Status: </span
+                                ><span class="text-success"><strong>In Stock</strong></span>
+                            </div>
+                            </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                            <input
+                            type="number"
+                            class="form-control"
+                            [(ngModel)]="productQty[i]"
+                            (ngModelChange)="updateProductQuantity(i, productQty[i])"
+                            min = 1
+                            />
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center">
+                            <strong>£{{p.price}}</strong>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center">
+                            <strong>£{{p.price * productQty[i] | number: '1.2-2'}}</strong>
+                        </td>
+                        <td class="col-sm-1 col-md-1">
+                            <button type="button" class="btn btn-danger" (click)="removeProduct(p)">X</button>
+                        </td>
+                        </tr>
+                        
+                        <tr>
+                        <td colspan="3" class="text-right">
+                            <h5>Shipping</h5>
+                        </td>
+                        <td class="text-center">
+                            <h5><strong>£10.00</strong></h5>
+                        </td>
+                        <td></td>
+                        </tr>
+                        <tr>
+                        <td colspan="3" class="text-right">
+                            <h3>Total</h3>
+                        </td>
+                        <td class="text-center">
+                            <h3><strong>£{{getTotalPrice() | number: '1.2-2'}}</strong></h3>
+                        </td>
+                        <td></td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+
+            <form class="m-1">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Promo code" />
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary">Redeem</button>
+                    </div>
+                </div>
+                </form>
+                <a type="button" [routerLink]="['/cart']" class="m-1 btn btn-success">
+                    Go to order page
+                </a>
+
+                <a
+                    type="button"
+                    href=""
+                    class="m-1 btn btn-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#cancelModal"
+                >
+                    Clear your shopping cart
+                </a>
+            </div>
+        </div>
+
+    <div
+        class="modal fade"
+        id="cancelModal"
+        tabindex="-1"
+        aria-labelledby="cancelModalLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Clear Basket</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+                </div>
+                <div class="modal-body">Are you sure you want to clear your cart?</div>
+                <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                >
+                    Cancel
+                </button>
+                <button type="button" class="btn btn-danger" aria-label="Close" (click)="clearCart()">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+  
+      <!-- OTHER CUSTOMERS ALSO BOUGHT SECTION-->
+  
+      <div class="p-4 pt-1 mb-3 mt-0 bg-light rounded">
+        <h3 class="display-5 text-decoration-underline my-4">
+          Other customers also bought...
+        </h3>
+        
+        <div class="row">
+          
+          <div class="col-md-3 col-sm-6" *ngFor="let p of randomProducts">
+            <div class="card rounded mb-4 shadow-sm">
+              <img
+                class="card-img-top"
+                src="/assets/images/products/{{p.smallImagePath}}"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{p.productName}}</h5>
+                <p class="card-text">{{p.cardTagline}}</p>
+              </div>
+              <div class="card-footer">
+                <a [routerLink]="['/product', p.productId]" class="btn btn-primary" (click)="scrollToTop()">
+                  View details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </main>
