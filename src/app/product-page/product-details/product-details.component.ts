@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { map, switchMap, tap } from 'rxjs';
 import { ProductJumbotronComponent } from "../product-jumbotron/product-jumbotron.component";
 import { OffcanvasCartComponent } from "../offcanvas-cart/offcanvas-cart.component";
-import { CartService } from '../../cart-service/cart.service';
+import { CartService } from '../../cart-service/local-cart.service';
 
 @Component({
   selector: 'BPS-product-details',
