@@ -18,6 +18,4 @@ export class ICart{
     
       return this._instance;
     }
-
-
 }
