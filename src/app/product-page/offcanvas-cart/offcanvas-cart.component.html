@@ -94,13 +94,12 @@
             </div>
         </div>
         </form>
-        <a type="button" href="order.html" class="m-1 btn btn-success">
-            Go to order page
+        <a type="button" [routerLink]="['/cart']" class="m-1 btn btn-success">
+            Go to basket
         </a>
 
         <a
             type="button"
-            href=""
             class="m-1 btn btn-danger"
             data-bs-toggle="modal"
             data-bs-target="#cancelModal"

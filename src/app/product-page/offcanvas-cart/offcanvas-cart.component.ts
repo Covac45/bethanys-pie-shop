@@ -5,10 +5,11 @@ import { ICart } from '../../cart-service/cart-model';
 import { CommonModule } from '@angular/common';
 import { Observable, Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'BPS-offcanvas-cart',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './offcanvas-cart.component.html',
   styleUrl: './offcanvas-cart.component.scss'
 })
