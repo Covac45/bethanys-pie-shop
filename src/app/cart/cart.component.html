@@ -95,20 +95,23 @@
                         <button type="button" class="btn btn-secondary">Redeem</button>
                     </div>
                 </div>
-                </form>
-                <a type="button" [routerLink]="['/cart']" class="m-1 btn btn-success">
-                    Go to order page
-                </a>
+            </form>
 
+            <div class ="pt-2 pb-2">
                 <a
                     type="button"
                     href=""
                     class="m-1 btn btn-danger"
                     data-bs-toggle="modal"
-                    data-bs-target="#cancelModal"
-                >
+                    data-bs-target="#cancelModal">
                     Clear your shopping cart
                 </a>
+                
+                <a type="button" [routerLink]="['/cart']" class="m-1 btn btn-success float-end">
+                    Proceed to checkout
+                </a>
+            </div>
+
             </div>
         </div>
 

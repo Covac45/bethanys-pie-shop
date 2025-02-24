@@ -18,8 +18,8 @@ import { ProductService } from '../product-page/product-service/product.service'
 export class CartComponent {
 
   public jumbotronCart: string = "/assets/images/carousel3.jpg";
-  public allProducts!: IProduct[];
-  public randomProducts!: IProduct[]
+  public allProducts: IProduct[] = []
+  public randomProducts: IProduct[] = [];
 
   public cartSubscription!: Subscription;
   
@@ -28,7 +28,6 @@ export class CartComponent {
   public productQty: number[] = []
   
   constructor(private cartSvc: CartService, private productSvc: ProductService){
-     this.productSvc.GetProducts().subscribe(products => this.allProducts = products);
   }
   
     ngOnInit(): void{
@@ -38,7 +37,17 @@ export class CartComponent {
       this.products = this.cart.products;
       this.productQty = this.cart.productQty;
       
-      this.randomProducts = this.getRandomProducts();
+      this.productSvc.GetProducts().subscribe(products => {
+          this.allProducts = products,
+          this.randomProducts = this.getRandomProducts()
+        });
+    }
+
+    ngOnChanges(){
+      this.productSvc.GetProducts().subscribe(products => {
+        this.allProducts = products;
+        this.randomProducts = this.getRandomProducts();
+      })
     }
   
     getTotalPrice(){
@@ -66,7 +75,7 @@ export class CartComponent {
         return this.allProducts;
       }
   
-      const shuffled = [...this.allProducts].sort(() => 0.5 - Math.random());
+      const shuffled = this.allProducts.sort(() => 0.5 - Math.random());
       return shuffled.slice(0, 4);
     }
 
