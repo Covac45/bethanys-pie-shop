@@ -1,6 +1,6 @@
 import { Component, inject, Inject } from '@angular/core';
 import { CartService } from '../../cart-service/local-cart.service';
-import { IProduct } from '../product-details/product-model';
+import { IProduct } from '../../product-service/product-model';
 import { ICart } from '../../cart-service/cart-model';
 import { CommonModule } from '@angular/common';
 import { Observable, Subscription } from 'rxjs';

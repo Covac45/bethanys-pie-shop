@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ProductService } from '../../product-page/product-service/product.service';
+import { ProductService } from '../../product-service/product.service';
 import { CommonModule } from '@angular/common';
-import { IProduct } from '../../product-page/product-details/product-model';
+import { IProduct } from '../../product-service/product-model';
 import { ProductJumbotronComponent } from "../../product-page/product-jumbotron/product-jumbotron.component";
 
 @Component({

@@ -1,4 +1,4 @@
-import { IProduct } from "../product-page/product-details/product-model"
+import { IProduct } from "../product-service/product-model"
 import { ICart } from "./cart-model";
 
 export interface ICartInterface {

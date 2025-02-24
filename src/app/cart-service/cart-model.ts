@@ -1,4 +1,4 @@
-import { IProduct } from "../product-page/product-details/product-model";
+import { IProduct } from "../product-service/product-model";
 
 export class ICart{
     products!: IProduct[];

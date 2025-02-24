@@ -2,12 +2,12 @@ import { Component, Inject } from '@angular/core';
 import { ProductJumbotronComponent } from "../product-page/product-jumbotron/product-jumbotron.component";
 import { RouterModule } from '@angular/router';
 import { CartService } from '../cart-service/local-cart.service';
-import { IProduct } from '../product-page/product-details/product-model';
+import { IProduct } from '../product-service/product-model';
 import { ICart } from '../cart-service/cart-model';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ProductService } from '../product-page/product-service/product.service';
+import { ProductService } from '../product-service/product.service';
 
 @Component({
   selector: 'BPS-cart',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IProduct } from '../product-page/product-details/product-model';
-import { ICartInterface } from './icart-interface';
+import { IProduct } from '../product-service/product-model';
+import { ICartInterface } from './ICart-interface';
 import { ICart } from './cart-model';
 import { BehaviorSubject, findIndex } from 'rxjs';
 

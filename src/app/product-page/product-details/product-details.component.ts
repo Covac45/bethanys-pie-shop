@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { IProduct } from './product-model';
-import { ProductService } from '../product-service/product.service';
+import { IProduct } from '../../product-service/product-model';
+import { ProductService } from '../../product-service/product.service';
 import { CommonModule } from '@angular/common';
 import { map, switchMap, tap } from 'rxjs';
 import { ProductJumbotronComponent } from "../product-jumbotron/product-jumbotron.component";
