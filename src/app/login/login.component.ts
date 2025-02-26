@@ -4,7 +4,7 @@ import { ProductJumbotronComponent } from "../product-page/product-jumbotron/pro
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../user-service/user.service';
-import { IUserCredentials } from '../user-service/user.model';
+import { IUser, IUserCredentials } from '../user-service/user.model';
 
 @Component({
   selector: 'BPS-login',
@@ -16,7 +16,7 @@ export class LoginComponent {
 
   public jumbotronLogin = '/assets/images/carousel3.jpg'
   public credentials: IUserCredentials = { username: '', password: '' };
-  
+
   public signInError: boolean = false
 
   constructor(private userSvc: UserService, private router: Router){
@@ -24,21 +24,20 @@ export class LoginComponent {
   }
 
   signIn(){
-    if (this.credentials){
-
-    }
-    console.log(JSON.stringify(this.credentials))
-
+   
     this.signInError = false;
     this.userSvc.signIn(this.credentials)
     .subscribe({
       next: (res:any) =>{
-        {console.log('res',res)}
-        localStorage.setItem('token', res.Token);
+        //{console.log('User',res.user)}
+        //{console.log('Token',res.accessToken)}
+        localStorage.setItem('token', res.accessToken);
         this.router.navigate(['/home']);
         alert('Login successful');
       },
-      error: (err) => {alert('Failed to contact the login server')}
+      error: (err) => {alert('Failed to contact the login server');
+        console.error(err)
+      }
     })
 
   }
