@@ -1,5 +1,6 @@
+<BPS-product-jumbotron [jumbotronImagePath]="jumbotronLogin"></BPS-product-jumbotron>
+
 <main role="main">
-    <BPS-product-jumbotron [jumbotronImagePath] = "jumbotronLogin"></BPS-product-jumbotron>
     <div class="container">
       <nav class="my-3 ms-3">
         <ol
@@ -24,19 +25,31 @@
                     </div>
                     <hr class = "text-center" style ="content: 'or';" />
                     <p class="text-muted text-center">Login with your email</p>
-                    <form>
+                    <form
+                        #signInForm="ngForm"
+                        class="form needs-validation"
+                        action="done.html"
+                        method="get"
+                        novalidate
+                        (ngSubmit)="signIn()">
+                        
                         <div class="col-12 p-1">
                             <label for="email" class="form-label">
                                 Email address:
                             </label>
-                            <input
-                                type="email"
-                                class="form-control"
-                                id="email"
-                                placeholder="you@example.com"
-                                required/>
-                            <div class="invalid-feedback">
-                                Please enter a valid email address.
+                            <div class = "input-group">
+                                <span class="input-group-text has-validation">{{ "@" }}</span>
+                                <input
+                                    type="email"
+                                    id="email address"
+                                    name ="email address"
+                                    [(ngModel)]="credentials.username"
+                                    placeholder="you@example.com"
+                                    class="form-control"
+                                    required/>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
                             </div>
                         </div>
 
@@ -47,6 +60,8 @@
                             <input
                                 type="password"
                                 id="password"
+                                name ="password"
+                                [(ngModel)]="credentials.password"
                                 class="form-control"
                                 required/>
                             <div class="invalid-feedback">
