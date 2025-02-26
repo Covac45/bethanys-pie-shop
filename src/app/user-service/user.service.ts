@@ -8,7 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UserService {
 
-  private user: BehaviorSubject<IUser | null>;
+  private userSource = new BehaviorSubject<IUser>(IUser.getInstance());
+  public user$ = this.userSource.asObservable();
   private jwtToken: BehaviorSubject<string | null>;
 
   private credentials!: IUserCredentials;
@@ -16,12 +17,11 @@ export class UserService {
   private apiURL = 'http://localhost:5043/api/authentication/';  
 
   constructor(private http: HttpClient) {
-    this.user = new BehaviorSubject<IUser | null>(null);
     this.jwtToken = new BehaviorSubject<string | null>(null);
   }
 
-  getUser(): Observable<IUser | null> {
-    return this.user;
+  getUser(): IUser {
+    return this.userSource.value;
   }
 
   signIn(credentials: IUserCredentials): Observable<{user: IUser; token: string}> {  
@@ -30,20 +30,19 @@ export class UserService {
 
     return this.http.post<any>(this.apiURL +'authenticate', credentials, { headers })
     .pipe(map((response) => {
-
       const user = response.user;
       const token = response.accessToken
 
-      this.user.next(user);
+      this.userSource.next(user);
       this.jwtToken.next(token)
-      console.log(JSON.stringify(user))
-      console.log(JSON.stringify(token))
+      console.log(JSON.stringify(this.userSource.value))
+      console.log(JSON.stringify(this.jwtToken))
       return {user, token};
       }));
     };
 
     signOut() {
-      this.user.next(null);
+      //this.userSource.next(null);
     }
           
 }
