@@ -58,6 +58,8 @@ export class ProductDetailsComponent {
       ).subscribe(filtered => {
         this.filteredProducts = filtered;
       });
+
+      this.scrollToTop();
     }
 
     scrollToTop(): void {
