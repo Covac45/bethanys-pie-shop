@@ -1,16 +1,16 @@
 export class IUser {
     username: string;
-    password: string;
     firstName: string;
     lastName: string;
+    role: string;
 
     private static _instance: IUser;
 
     private constructor() {
         this.username = '';
-        this.password = '';
         this.firstName = '';
         this.lastName = '';
+        this.role = '';
     }
 
     public static getInstance(): IUser{

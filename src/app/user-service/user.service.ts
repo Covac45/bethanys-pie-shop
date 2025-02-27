@@ -40,7 +40,7 @@ export class UserService {
     };
 
     signOut() {
-      const user: IUser = {username: '', password: '', firstName:'', lastName: ''}
+      const user: IUser = {username: '', firstName:'', lastName: '', role: ''}
       const token:string = '';
 
       this.userSource.next(user);
