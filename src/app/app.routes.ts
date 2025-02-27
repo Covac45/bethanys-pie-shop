@@ -23,6 +23,7 @@ import { StrawberryPieComponent } from './products/strawberry-pie/strawberry-pie
 import { ProductDetailsComponent } from './product-page/product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
+import { MyaccountComponent } from './myaccount/myaccount.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, title: "Home - Bethany's Pie Shop"},
@@ -30,7 +31,11 @@ export const routes: Routes = [
     {path: 'pieSubscription', component: PieSubscriptionComponent, title: "Pie Subscription - Bethany's Pie Shop"},
     {path: 'contact', component: ContactComponent, title: "Contact - Bethany's Pie Shop"},
     {path: 'cart', component: CartComponent, title: "Basket - Bethany's Pie Shop"},
+
+    //user routes
     {path: 'login', component: LoginComponent, title: "Sign in - Bethany's Pie Shop"},
+    {path: 'myaccount', component: MyaccountComponent, title: "My account - Bethany's Pie Shop"},
+
 
 
     //pie pages

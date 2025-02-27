@@ -1,0 +1,30 @@
+<div class="container mt-4">
+    <h2>My Account</h2>
+  
+    <!-- User Information Card -->
+    <div class="card mb-4">
+      <div class="card-header">User Information</div>
+      <div class="card-body">
+        <p><strong>First Name:</strong> {{ user?.firstName }}</p>
+        <p><strong>Last Name:</strong> {{ user?.lastName }}</p>
+        <p><strong>Email:</strong> {{ user?.username }}</p>
+        <p><strong>Email:</strong> {{ user?.username }}</p>
+      </div>
+    </div>
+  
+    <!-- Bootstrap Tabs -->
+    <ul class="nav nav-tabs" id="accountTabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="tab" href="#orders">Order History</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#payments">Stored Payment Details</a>
+      </li>
+    </ul>
+  
+    <!-- Tab Content -->
+    <div class="tab-content mt-3">
+      <div id="orders" class="tab-pane fade show active">
+        <BPS-order-history></BPS-order-history>
+      </div>
+    </div>
