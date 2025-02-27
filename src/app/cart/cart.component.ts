@@ -34,22 +34,19 @@ export class CartComponent {
       this.cartSubscription = this.cartSvc.cart$.subscribe(updatedCart => {
         this.cart = updatedCart;
       });
+
+      this.cartSvc.updateCart(this.cartSvc.LoadCart())
+
       this.products = this.cart.products;
       this.productQty = this.cart.productQty;
       
-      this.productSvc.GetProducts().subscribe(products => {
-          this.allProducts = products,
-          this.randomProducts = this.getRandomProducts()
-        });
-    }
 
-    ngOnChanges(){
       this.productSvc.GetProducts().subscribe(products => {
         this.allProducts = products;
         this.randomProducts = this.getRandomProducts();
       })
     }
-  
+
     getTotalPrice(){
       return this.cartSvc.getTotalCartPrice();
     }

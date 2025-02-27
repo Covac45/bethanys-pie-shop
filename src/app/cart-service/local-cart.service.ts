@@ -96,4 +96,8 @@ export class CartService implements ICartInterface {
     }
   }
 
+  updateCart(newCart: ICart){
+    this.cartSource.next(newCart)
+  }
+
 }
