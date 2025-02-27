@@ -42,7 +42,11 @@ export class UserService {
     };
 
     signOut() {
-      //this.userSource.next(null);
+      const user: IUser = {username: '', password: '', firstName:'', lastName: ''}
+      const token:string = '';
+
+      this.userSource.next(user);
+      this.jwtToken.next(token)
     }
           
 }

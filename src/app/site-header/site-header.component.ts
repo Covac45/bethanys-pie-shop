@@ -27,4 +27,9 @@ export class SiteHeaderComponent {
     this.user = this.userSvc.getUser();
   }
 
+  signOut(){
+    this.userSvc.signOut();
+    alert('You are now signed out.')
+  }
+
 }
