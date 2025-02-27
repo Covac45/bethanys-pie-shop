@@ -28,15 +28,13 @@ export class UserService {
     
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post<any>(this.apiURL +'authenticate', credentials, { headers })
+    return this.http.post<any>(this.apiURL +'login', credentials, { headers })
     .pipe(map((response) => {
       const user = response.user;
       const token = response.accessToken
 
       this.userSource.next(user);
       this.jwtToken.next(token)
-      console.log(JSON.stringify(this.userSource.value))
-      console.log(JSON.stringify(this.jwtToken))
       return {user, token};
       }));
     };
@@ -47,6 +45,10 @@ export class UserService {
 
       this.userSource.next(user);
       this.jwtToken.next(token)
+    }
+
+    checkAuthstatus(){
+
     }
           
 }
