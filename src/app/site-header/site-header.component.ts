@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { IUser } from '../user-service/user.model';
 
+declare var bootstrap: any;
+
 @Component({
   selector: 'BPS-site-header',
   imports: [RouterModule, CommonModule],
@@ -18,6 +20,7 @@ export class SiteHeaderComponent {
   public userSubscription: Subscription
   public user!: IUser;
 
+
   constructor(userSvc: UserService){
     this.userSvc = userSvc
     this.userSubscription = userSvc.user$.subscribe(u => this.user = u)
@@ -29,7 +32,5 @@ export class SiteHeaderComponent {
 
   signOut(){
     this.userSvc.signOut();
-    alert('You are now signed out.')
   }
-
 }
