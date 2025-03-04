@@ -3,6 +3,8 @@ import { IProduct } from '../product-service/product-model';
 import { ICartInterface } from './ICart-interface';
 import { ICart } from './cart-model';
 import { BehaviorSubject, findIndex } from 'rxjs';
+import { ToastService } from '../toast/toast.service';
+import { Itoast } from '../toast/Itoast';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ export class CartService implements ICartInterface {
 
   public shippingCost: number = 10.00
   
-  constructor() { }
+  constructor(private toastSvc: ToastService) { }
 
   LoadCart(){
     return JSON.parse(localStorage.getItem('cart_items') || '{"products": [], "productQty": []}');
@@ -41,6 +43,9 @@ export class CartService implements ICartInterface {
     
     this.saveCart();
     this.cartSource.next({ ...cart});
+
+    const productAddToast: Itoast = {title: 'Product added to cart', message: product.productName + ' added to cart', isVisible: true}
+    this.toastSvc.toast.set(productAddToast);
   }
 
   GetCart(): ICart{
