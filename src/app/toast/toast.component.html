@@ -1,10 +1,15 @@
-<div style="z-index: 100" class = "toast fade show" role = "alert" aria-live="assertive" aria-atomic="false" data-bs-autohide="true">
-    <div class="toast-header">
-        <strong class ="me-auto">{{title}}</strong>
-        <button type ="button" class ="btn-close" data-bs-dismiss="toast" aria-label = "Close" (click)="closeHit.emit(true)">
-        </button>
-    </div>
-    <div class = "toast-body">
-        {{message}}
+<div class= "position-fixed bottom-0 end-0 p-3 toast-container" style ="z-index: 5" aria-live="assertive" aria-atomic="true" *ngIf="getToast().isVisible===true">
+    <div class="d-flex">
+        <div style="z-index: 100" class = "toast fade show" role = "alert" aria-live="assertive" aria-atomic="false" data-bs-autohide="true">
+            <div class="toast-header">
+                <strong class ="me-auto">{{getToast().title}}</strong>
+                <button type ="button" class ="btn-close" data-bs-dismiss="toast" aria-label = "Close" (click)="closeHit.emit(true)">
+                </button>
+            </div>
+
+            <div class = "toast-body">
+                {{getToast().message}}
+            </div>
+        </div>
     </div>
 </div>

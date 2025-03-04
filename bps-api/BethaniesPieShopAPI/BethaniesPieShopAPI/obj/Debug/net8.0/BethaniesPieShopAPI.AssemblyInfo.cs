@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BethaniesPieShopAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+695ec0cee2923752062c85d166140c908f8acb48")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eca4ca7d6c74c2987df86dc3200228f314fe90fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("BethaniesPieShopAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BethaniesPieShopAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

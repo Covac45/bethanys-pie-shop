@@ -1,25 +1,32 @@
 import { Component, EventEmitter, input, Input, Output } from '@angular/core';
+import { UserService } from '../user-service/user.service';
+import { Itoast } from './Itoast';
+import { CommonModule } from '@angular/common';
 
 declare var bootstrap: any;
 
 @Component({
   selector: 'BPS-toast',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './toast.component.html',
   styleUrl: './toast.component.scss'
 })
 export class ToastComponent {
   
 @Output() closeHit: EventEmitter<boolean> = new EventEmitter
-@Input() title: string = ''
-@Input() message: string = ''
 
-constructor(){}
+
+constructor(private userSvc: UserService){
+}
 
   ngOnInit(){
     this.showToast()
   }
 
+
+  getToast(){
+    return this.userSvc.toast()
+  }
 
   showToast(){
     var toastList = [].slice.call(document.querySelectorAll('toast'))
