@@ -3,6 +3,7 @@ import { IUser, IUserCredentials } from './user.model';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Itoast } from '../toast/Itoast';
+import { ToastService } from '../toast/toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,11 @@ export class UserService {
   public user$ = this.userSource.asObservable();
   private jwtToken: BehaviorSubject<string | null>;
 
-  private toastInit: Itoast = {title: '', message: '', isVisible: false};
-  public toast = signal<Itoast>(this.toastInit);
-
   private credentials!: IUserCredentials;
 
   private apiURL = 'http://localhost:5043/api/authentication/';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private toastSvc: ToastService) {
     this.jwtToken = new BehaviorSubject<string | null>(null);
   }
 
@@ -40,7 +38,7 @@ export class UserService {
 
       this.userSource.next(user);
       this.jwtToken.next(token)
-      this.toast = signal<Itoast>(toastSignIn)
+      this.toastSvc.toast = signal<Itoast>(toastSignIn)
       return {user, token};
       }));
     };
@@ -52,7 +50,7 @@ export class UserService {
 
       this.userSource.next(user);
       this.jwtToken.next(token)
-      this.toast = signal<Itoast>(toastSignOut)
+      this.toastSvc.toast = signal<Itoast>(toastSignOut)
     }
 
     checkAuthstatus(){

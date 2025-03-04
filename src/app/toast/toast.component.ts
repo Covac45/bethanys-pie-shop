@@ -1,49 +1,33 @@
-import { Component, EventEmitter, input, Input, Output } from '@angular/core';
-import { UserService } from '../user-service/user.service';
+import { Component} from '@angular/core';
 import { Itoast } from './Itoast';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ToastService } from './toast.service';
 
 declare var bootstrap: any;
 
 @Component({
   selector: 'BPS-toast',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './toast.component.html',
   styleUrl: './toast.component.scss'
 })
+
 export class ToastComponent {
-  
-@Output() closeHit: EventEmitter<boolean> = new EventEmitter
 
-
-constructor(private userSvc: UserService){
+constructor(private toastSvc: ToastService){
 }
 
   ngOnInit(){
-    this.showToast()
   }
-
 
   getToast(){
-    return this.userSvc.toast()
+    return this.toastSvc.toast();
   }
 
-  showToast(){
-    var toastList = [].slice.call(document.querySelectorAll('toast'))
-    toastList.map(function (toast) {
-      return new bootstrap.Toast(toast, {})
-    })
-  }
-
-  Toast(){
-    const toastLiveExample = document.getElementById('liveToast');
-    if (toastLiveExample) {
-      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample, {
-        autohide: true,
-        delay: 3000
-      });
-      toastBootstrap.show();
-    }
+  setToastToInvisible(){
+    var setToast = this.toastSvc.toast();
+    setToast.isVisible = false;
+    this.toastSvc.toast.set(setToast);
   }
 }
-
