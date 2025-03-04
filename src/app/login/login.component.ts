@@ -33,7 +33,6 @@ export class LoginComponent {
         //{console.log('Token',res.accessToken)}
         localStorage.setItem('token', res.accessToken);
         this.router.navigate(['/home']);
-        alert('Login successful');
       },
       error: (err) => {alert('Failed to contact the login server');
         console.error(err)
