@@ -3,7 +3,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { SiteHeaderComponent } from './site-header/site-header.component';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { ControlsComponent } from "./controls/controls.component";
+import { ToastComponent } from "./toast/toast.component";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import { ControlsComponent } from "./controls/controls.component";
     RouterModule,
     CommonModule,
     SiteHeaderComponent,
-    ControlsComponent
+    ToastComponent
 ],
   providers: [HttpClient],
   templateUrl: './app.component.html',
