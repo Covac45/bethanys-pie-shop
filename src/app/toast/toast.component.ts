@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 
 declare var bootstrap: any;
 
@@ -9,19 +9,34 @@ declare var bootstrap: any;
   styleUrl: './toast.component.scss'
 })
 export class ToastComponent {
+  
+@Output() closeHit: EventEmitter<boolean> = new EventEmitter
+@Input() title: string = ''
+@Input() message: string = ''
 
-      // Show toast to alert user that they have signed out.
-     
-     
-    signOutToast(){
-      const toastLiveExample = document.getElementById('liveToast');
-      if (toastLiveExample) {
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample, {
-          autohide: true,
-          delay: 3000
-        });
-        toastBootstrap.show();
-      }
+constructor(){}
+
+  ngOnInit(){
+    this.showToast()
+  }
+
+
+  showToast(){
+    var toastList = [].slice.call(document.querySelectorAll('toast'))
+    toastList.map(function (toast) {
+      return new bootstrap.Toast(toast, {})
+    })
+  }
+
+  Toast(){
+    const toastLiveExample = document.getElementById('liveToast');
+    if (toastLiveExample) {
+      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample, {
+        autohide: true,
+        delay: 3000
+      });
+      toastBootstrap.show();
     }
+  }
 }
 
