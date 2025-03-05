@@ -24,6 +24,10 @@ import { ProductDetailsComponent } from './product-page/product-details/product-
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
+import { ProductManagementComponent } from './product-management/product-management.component';
+import { CreateProductComponent } from './create-product/create-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { RemoveProductComponent } from './remove-product/remove-product.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, title: "Home - Bethany's Pie Shop"},
@@ -36,7 +40,11 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent, title: "Sign in - Bethany's Pie Shop"},
     {path: 'myaccount', component: MyaccountComponent, title: "My account - Bethany's Pie Shop"},
 
-
+    //admin routes
+    {path: 'productManagement', component: ProductManagementComponent, title: "Product Management - Bethany's Pie Shop"},
+    {path: 'createProduct', component: CreateProductComponent, title: "Create New Product - Bethany's Pie Shop"},
+    {path: 'updateProduct', component: UpdateProductComponent, title: "update Existing Product - Bethany's Pie Shop"},
+    {path: 'removeProduct', component: RemoveProductComponent, title: "Remove Existing Product - Bethany's Pie Shop"},
 
     //pie pages
     {path: 'cheesecakes', component: CheesecakesComponent, title: "Cheesecakes - Bethany's Pie Shop"},
