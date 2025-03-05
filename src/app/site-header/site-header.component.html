@@ -154,6 +154,18 @@
                 My Account
               </a>
             </li>
+            <li *ngIf="user.role==='Admin'">
+                <hr class="dropdown-divider" />
+            </li>
+            <li *ngIf="user.role==='Admin'" >
+              <a
+                class="dropdown-item"
+                [routerLink]="['/productManagement']"
+              >
+              Product Management
+              </a>
+            </li>
+
             <li><hr class="dropdown-divider" /></li>
             <li>
               <a
