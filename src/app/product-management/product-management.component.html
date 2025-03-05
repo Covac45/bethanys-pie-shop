@@ -1,1 +1,63 @@
-<p>product-management works!</p>
+<div class="container mt-4">
+  <h2>Product Management Dashboard</h2>
+  
+  <!-- Navigation Buttons -->
+  <div class="mb-4">
+    <button class="btn btn-success me-2" [routerLink]="['/createProduct']">
+      Create Product
+    </button>
+    <button class="btn btn-primary me-2" [routerLink]="['/updateProduct']">
+      Update Product
+    </button>
+    <button class="btn btn-danger me-2" [routerLink]="['/removeProduct']">
+      Remove Product
+    </button>
+  </div>
+  
+  <!-- Dashboard Metrics -->
+  <div class="row">
+    <!-- Total Products -->
+    <div class="col-md-3">
+      <div class="card text-center mb-4" style="border: 2px solid #ff6384; background-color: #ffeef2;">
+        <div class="card-body">
+          <h5 class="card-title">Total Products</h5>
+          <p class="card-text display-4">{{ totalProducts }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Average Price 
+    <div class="col-md-3">
+      <div class="card text-center mb-4" style="border: 2px solid #36a2eb; background-color: #e8f4ff;">
+        <div class="card-body">
+          <h5 class="card-title">Average Price</h5>
+          <p class="card-text display-4">£{{ averagePrice | number:'1.2-2' }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-3">
+      <div class="card text-center mb-4" style="border: 2px solid #ffcd56; background-color: #fff8e1;">
+        <div class="card-body">
+          <h5 class="card-title">Most Popular</h5>
+          <p class="card-text">{{ mostPopularProduct }}</p>
+        </div>
+      </div>
+    </div>
+  -->
+  
+  <!-- Dashboard Chart / Trends -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card mb-4" style="background-color: #f9f9f9;">
+        <div class="card-header">
+          Sales &amp; Inventory Trends
+        </div>
+        <div class="card-body">
+          <!-- Placeholder for chart component or image -->
+          <img src="https://www.geckoboard.com/uploads/sales-dashboard-example.png" alt="Dashboard Chart" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
