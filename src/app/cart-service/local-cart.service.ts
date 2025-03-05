@@ -68,6 +68,9 @@ export class CartService implements ICartInterface {
 
       this.cartSource.next(cart)
       this.saveCart();
+      
+      const productRemovalToast: Itoast = {title: 'Product removed from cart', message: product.productName + ' removed from cart', isVisible: true}
+      this.toastSvc.toast.set(productRemovalToast);
     }
   }
 
@@ -83,6 +86,10 @@ export class CartService implements ICartInterface {
     this.cartSource.next(emptyCart);
     localStorage.removeItem('cart_items');
     this.saveCart();
+
+    const clearProductsToast: Itoast = {title: 'Cart cleared', message: 'All products removed from cart', isVisible: true}
+    this.toastSvc.toast.set(clearProductsToast);
+
   }
 
   getTotalCartPrice(): number {
