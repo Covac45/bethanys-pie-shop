@@ -3,8 +3,8 @@ import { IProduct } from "../product-service/product-model";
 
 export class IDashboardData{
 
-    private dashProducts!: IProduct[]
-    private dashOrders!: IOrder[]
+    public dashProducts!: IProduct[]
+    public dashOrders!: IOrder[]
 
     private static _instance: IDashboardData
 
