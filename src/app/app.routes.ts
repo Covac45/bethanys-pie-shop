@@ -25,9 +25,9 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
 import { ProductManagementComponent } from './product-management/product-management.component';
-import { CreateProductComponent } from './create-product/create-product.component';
-import { UpdateProductComponent } from './update-product/update-product.component';
-import { RemoveProductComponent } from './remove-product/remove-product.component';
+import { CreateProductComponent } from './product-management/create-product/create-product.component';
+import { UpdateProductComponent } from './product-management/update-product/update-product.component';
+import { RemoveProductComponent } from './product-management/remove-product/remove-product.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, title: "Home - Bethany's Pie Shop"},
