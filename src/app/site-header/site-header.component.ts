@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Route, Router, RouterModule } from '@angular/router';
 import { UserService } from '../user-service/user.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -17,13 +17,15 @@ declare var bootstrap: any;
 export class SiteHeaderComponent {
 
   private userSvc: UserService
+  private router: Router
   public userSubscription: Subscription
   public user!: IUser;
 
 
-  constructor(userSvc: UserService){
+  constructor(userSvc: UserService, router: Router){
     this.userSvc = userSvc
     this.userSubscription = userSvc.user$.subscribe(u => this.user = u)
+    this.router = router
   }
 
   ngOnChanges(){
@@ -32,5 +34,6 @@ export class SiteHeaderComponent {
 
   signOut(){
     this.userSvc.signOut();
+    this.router.navigate(['/home']);
   }
 }
